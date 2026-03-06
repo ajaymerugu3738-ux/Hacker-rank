@@ -1,0 +1,453 @@
+1)https://www.hackerrank.com/challenges/py-hello-world/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    print("Hello, World!")
+2)https://www.hackerrank.com/challenges/py-if-else/problem?isFullScreen=true
+-----------
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    n = int(input().strip())
+    
+    if n % 2 != 0:
+        print("Weird")
+    else: 
+        if 2 <= n <= 5:
+            print("Not Weird")
+        elif 6 <= n <= 20:
+            print("Weird")
+        else:
+            print("Not Weird")
+3)https://www.hackerrank.com/challenges/python-arithmetic-operators/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    print(a + b)
+    print(a - b)
+    print(a * b)
+4)https://www.hackerrank.com/challenges/python-division/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    
+    c=a//b
+    d=a/b
+    
+    print(c)
+    print(d)
+5)https://www.hackerrank.com/challenges/python-loops/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    n = int(input())
+    
+for i in range(n):
+    print(i*i)
+6)https://www.hackerrank.com/challenges/write-a-function/problem?isFullScreen=true
+-----------
+def is_leap(year):
+    if (year % 400 == 0):
+        return True
+    elif (year % 100 == 0):
+        return False
+    elif (year % 4 ==0):
+        return True
+    else:
+        return False
+7)https://www.hackerrank.com/challenges/python-print/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    n = int(input())
+        
+for i in range(1, n + 1):
+    print(i, end="")
+8)https://www.hackerrank.com/challenges/list-comprehensions/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    
+    result = [[i, j, k]
+                for i in range(x + 1)
+                for j in range(y + 1)
+                for k in range(z + 1)
+                if i + j + k != n]
+    print(result)
+9)https://www.hackerrank.com/challenges/finding-the-percentage/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+
+    for _ in range(n):
+        name, *marks = input().split()
+        student_marks[name] = list(map(float, marks))
+
+    query_name = input()
+
+    avg = sum(student_marks[query_name]) / len(student_marks[query_name])
+    print(f"{avg:.2f}")
+10)https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    
+    arr = list(set(arr))
+    arr.sort()
+    
+    print(arr[-2])
+11)https://www.hackerrank.com/challenges/nested-list/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+        n = int(input())
+        students = []
+for i in range(n):
+    name = input()
+    score = float(input())
+    students.append([name, score])
+
+scores = []
+for s in students:
+    scores.append(s[1])
+
+scores = sorted(set(scores))
+second_lowest = scores[1]
+
+names = []
+for s in students:
+    if s[1] == second_lowest:
+        names.append(s[0])
+
+names.sort()
+
+for name in names:
+    print(name)
+12)https://www.hackerrank.com/challenges/swap-case/problem?isFullScreen=true
+-----------
+def swap_case(s):
+    return s.swapcase()
+13)https://www.hackerrank.com/challenges/python-string-split-and-join/problem?isFullScreen=true
+-----------
+def split_and_join(line):
+    return "-".join(line.split(" "))
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
+14)https://www.hackerrank.com/challenges/whats-your-name/problem?isFullScreen=true
+-----------
+def print_full_name(first, last):
+        print(f"Hello {first} {last}! You just delved into python.")
+15)https://www.hackerrank.com/challenges/python-mutations/problem?isFullScreen=true
+-----------
+def mutate_string(string, position, character):
+    return string[:position] + character + string[position+1:]
+16)https://www.hackerrank.com/challenges/find-a-string/problem?isFullScreen=true
+-----------
+def count_substring(string, sub_string):
+    count = 0
+    # Loop through the string up to the point where the substring could still fit
+    for i in range(0, len(string) - len(sub_string) + 1):
+        # Extract a slice of the string the same length as the substring
+        # and compare it to the substring
+        if string[i:i+len(sub_string)] == sub_string:
+            count += 1
+    return count
+17)https://www.hackerrank.com/challenges/string-validators/problem?isFullScreen=true
+-----------
+if __name__ == '__main__':
+    s = input()
+    
+    print(any(char.isalnum() for char in s))
+    
+    print(any(char.isalpha() for char in s))
+    
+    print(any(char.isdigit() for char in s))
+    
+    print(any(char.islower() for char in s))
+    
+    print(any(char.isupper() for char in s))
+18)https://www.hackerrank.com/challenges/text-alignment/problem?isFullScreen=true
+-----------
+thickness = int(input()) # This must be an odd number
+c = 'H'
+
+# Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1) + c + (c*i).ljust(thickness-1))
+
+# Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2) + (c*thickness).center(thickness*6))
+
+# Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+# Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2) + (c*thickness).center(thickness*6))    
+
+# Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness) + c + (c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+19)https://www.hackerrank.com/challenges/text-wrap/problem?isFullScreen=true
+-----------
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+20)https://www.hackerrank.com/challenges/the-minion-game/problem?isFullScreen=true
+-----------
+def minion_game(string):
+    vowels = "AEIOU"
+    kevin = 0
+    stuart = 0
+    n = len(string)
+
+    for i in range(n):
+        if string[i] in vowels:
+            kevin += n - i
+        else:
+            stuart += n - i
+
+    if kevin > stuart:
+        print("Kevin", kevin)
+    elif stuart > kevin:
+        print("Stuart", stuart)
+    else:
+        print("Draw")
+21)https://www.hackerrank.com/challenges/merge-the-tools/problem?isFullScreen=true
+-----------
+def merge_the_tools(string, k):
+      for i in range(0, len(string), k):
+        substring = string[i:i+k]
+        seen = set()
+        result = ""
+
+        for ch in substring:
+            if ch not in seen:
+                seen.add(ch)
+                result += ch
+
+        print(result)
+22)https://www.hackerrank.com/challenges/collections-counter/problem?isFullScreen=true
+-----------
+from collections import Counter
+
+def calculate_earnings():
+    # Read the number of shoes (X)
+    num_shoes = int(input())
+    
+    # Read the list of shoe sizes and convert to a Counter (inventory)
+    shoe_sizes = list(map(int, input().split()))
+    inventory = Counter(shoe_sizes)
+    
+    # Read the number of customers (N)
+    num_customers = int(input())
+    
+    total_earned = 0
+    
+    # Process each customer's request
+    for _ in range(num_customers):
+        size, price = map(int, input().split())
+        
+        # Check if the desired size is in stock
+        if inventory[size] > 0:
+            total_earned += price
+            # Reduce the inventory for that size by 1
+            inventory[size] -= 1
+            
+    print(total_earned)
+
+if __name__ == '__main__':
+    calculate_earnings()
+23)https://www.hackerrank.com/challenges/python-time-delta/problem?isFullScreen=true
+-----------
+from datetime import datetime
+
+def time_delta(t1, t2):
+    format = "%a %d %b %Y %H:%M:%S %z"
+    time1 = datetime.strptime(t1, format)
+    time2 = datetime.strptime(t2, format)
+    return abs(int((time1 - time2).total_seconds()))
+
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+        t1 = input()
+        t2 = input()
+        print(time_delta(t1, t2))
+24)https://www.hackerrank.com/challenges/find-angle/problem?isFullScreen=true
+-----------
+import math
+
+# Read input lengths
+ab = int(input())
+bc = int(input())
+
+# Calculate the angle in degrees
+# math.atan2 is more robust than atan(ab/bc) as it handles division by zero
+angle_deg = math.degrees(math.atan2(ab, bc))
+
+# Custom rounding to ensure .5 rounds up
+# Adding 0.5 and floor-ing is a reliable way to get the expected behavior
+result = int(angle_deg + 0.5)
+
+print(f"{result}\u00b0")
+25)https://www.hackerrank.com/challenges/no-idea/problem?isFullScreen=true
+-----------
+n, m = map(int, input().split())
+
+arr = list(map(int, input().split()))
+
+A = set(map(int, input().split()))
+B = set(map(int, input().split()))
+
+happiness = 0
+
+for x in arr:
+    if x in A:
+        happiness += 1
+    elif x in B:
+        happiness -= 1
+
+# Output result
+print(happiness)
+26)https://www.hackerrank.com/challenges/word-order/problem?isFullScreen=true
+-----------
+from collections import OrderedDict
+
+n = int(input())
+
+word_count = OrderedDict()
+for _ in range(n):
+    word = input().strip()
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+
+print(len(word_count))
+
+print(' '.join(str(count) for count in word_count.values()))
+27)https://www.hackerrank.com/challenges/compress-the-string/problem?isFullScreen=true
+-----------
+from itertools import groupby
+
+s = input().strip()
+
+result = [(len(list(group)), int(char)) for char, group in groupby(s)]
+
+print(' '.join(f"({count}, {digit})" for count, digit in result))
+28)https://www.hackerrank.com/challenges/piling-up/problem?isFullScreen=true
+-----------
+for _ in range(int(input())):
+    n = int(input())
+    cubes = list(map(int, input().split()))
+    
+    top = float('inf')  
+    
+    while cubes:
+        left, right = cubes[0], cubes[-1]
+        
+        if left >= right and left <= top:
+            top = left
+            cubes.pop(0)
+        elif right > left and right <= top:
+            top = right
+            cubes.pop()
+        elif left <= top:
+            top = left
+            cubes.pop(0)
+        elif right <= top:
+            top = right
+            cubes.pop()
+        else:
+            print("No")
+            break
+    else:
+        print("Yes")
+29)https://www.hackerrank.com/challenges/triangle-quest-2/problem?isFullScreen=true
+-----------
+for i in range(1, int(input()) + 1): # More than 2 lines will result in 0 score
+    print(((10**i - 1) // 9)**2)
+30)https://www.hackerrank.com/challenges/maximize-it/problem?isFullScreen=true
+-----------
+from itertools import product
+
+def solve():
+    # Read K and M
+    k, m = map(int, input().split())
+    
+    lists = []
+    for _ in range(k):
+        # Read the list, skipping the first element (which is the count Ni)
+        row = list(map(int, input().split()))[1:]
+        # We only care about the squares of these numbers
+        lists.append([x**2 for x in row])
+    
+    max_val = 0
+    
+    # Generate all combinations of picking one squared value from each list
+    for combination in product(*lists):
+        # Calculate (sum of squares) % M
+        current_sum = sum(combination) % m
+        
+        # Update max_val if the current combination is higher
+        if current_sum > max_val:
+            max_val = current_sum
+            
+    print(max_val)
+
+if __name__ == '__main__':
+    solve()
+31)https://www.hackerrank.com/challenges/validating-postalcode/problem?isFullScreen=true
+-----------
+regex_integer_in_range = r"^[1-9]\d{5}$"	# Do not delete 'r'.
+regex_alternating_repetitive_digit_pair = r"(\d)(?=\d\1)"	# Do not delete 'r'.
+32)https://www.hackerrank.com/challenges/matrix-script/problem?isFullScreen=true
+-----------
+import re
+
+n, m = map(int, input().split())
+
+matrix = []
+for _ in range(n):
+    matrix.append(input())
+
+column_major = zip(*matrix)
+
+
+decoded_string = "".join("".join(column) for column in column_major)
+
+final_script = re.sub(r'(?<=\w)[^a-zA-Z0-9]+(?=\w)', ' ', decoded_string)
+
+print(final_script)
+33)https://www.hackerrank.com/challenges/np-min-and-max/problem?isFullScreen=true
+-----------
+import numpy
+
+n, m = map(int, input().split())
+storage = []
+for _ in range(n):
+    storage.append(list(map(int, input().split())))
+
+my_array = numpy.array(storage)
+
+min_axis_1 = numpy.min(my_array, axis=1)
+
+result = numpy.max(min_axis_1)
+
+print(result)
