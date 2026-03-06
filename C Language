@@ -1,0 +1,434 @@
+1)https://www.hackerrank.com/challenges/hello-world-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+	
+    char s[100];
+    scanf("%[^\n]%*c", &s);
+  	
+   fgets(s, sizeof(s), stdin);
+   printf("Hello, World!\n");
+   printf("%s",s);    
+    return 0;
+}
+2)https://www.hackerrank.com/challenges/playing-with-characters/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+    char ch;
+    char str[100];
+    char sentence[100];
+    scanf("%s", &ch);
+    scanf("%s",str);
+    getchar();
+    scanf("%[^\n]%*c",sentence);
+    
+    printf("%c\n",ch);
+    printf("%s\n",str);
+    printf("%s\n",sentence);
+    return 0;
+}
+3)https://www.hackerrank.com/challenges/sum-numbers-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a, b;
+    float x, y;
+    scanf("%d %d",&a,&b);
+    scanf("%f %f", &x, &y);
+    printf("%d %d\n", a + b,a - b);
+    printf("%.1f %.1f\n", x + y, x - y);
+	
+    
+    return 0;
+}
+4)https://www.hackerrank.com/challenges/functions-in-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+
+int max_of_four(int a, int b, int c, int d) {
+    int max = a;
+    
+    if (b > max) max = b;
+    if (c > max) max = c;
+    if (d > max) max = d;
+    
+    return max;
+}
+
+int main() {
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    printf("%d", max_of_four(a, b, c, d)); 
+    return 0;
+}
+5)https://www.hackerrank.com/challenges/pointer-in-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+
+void update(int *a,int *b) {
+    int sum = *a + *b;
+    int diff = *a - *b;
+    if (diff < 0)
+        diff = -diff;
+
+    *a = sum;
+    *b = diff;
+}
+    
+
+int main() {
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
+    return 0;
+}
+6)https://www.hackerrank.com/challenges/conditional-statements-in-c/problem?isFullScreen=true
+----------
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+
+
+
+int main()
+{
+    char* n_endptr;
+    char* n_str = readline();
+    int n = strtol(n_str, &n_endptr, 10);
+
+    if (n_endptr == n_str || *n_endptr != '\0') { exit(EXIT_FAILURE); }
+
+    scanf("%d", &n);
+
+    if (n == 1)
+        printf("one");
+    else if (n == 2)
+        printf("two");
+    else if (n == 3)
+        printf("three");
+    else if (n == 4)
+        printf("four");
+    else if (n == 5)
+        printf("five");
+    else if (n == 6)
+        printf("six");
+    else if (n == 7)
+        printf("seven");
+    else if (n == 8)
+        printf("eight");
+    else if (n == 9)
+        printf("nine");
+    else
+        printf("Greater than 9");
+
+    return 0;
+}
+
+char* readline() {
+    size_t alloc_length = 1024;
+    size_t data_length = 0;
+    char* data = malloc(alloc_length);
+
+    while (true) {
+        char* cursor = data + data_length;
+        char* line = fgets(cursor, alloc_length - data_length, stdin);
+
+        if (!line) { break; }
+
+        data_length += strlen(cursor);
+
+        if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') { break; }
+
+        size_t new_length = alloc_length << 1;
+        data = realloc(data, new_length);
+
+        if (!data) { break; }
+
+        alloc_length = new_length;
+    }
+
+    if (data[data_length - 1] == '\n') {
+        data[data_length - 1] = '\0';
+    }
+
+    data = realloc(data, data_length);
+
+    return data;
+}
+7)https://www.hackerrank.com/challenges/for-loop-in-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int main() 
+{
+    int a, b;
+    scanf("%d\n%d", &a, &b);
+  	for (int i = a; i <= b; i++) {
+        if (i >= 1 && i <= 9) {
+            if (i == 1) printf("one\n");
+            else if (i == 2) printf("two\n");
+            else if (i == 3) printf("three\n");
+            else if (i == 4) printf("four\n");
+            else if (i == 5) printf("five\n");
+            else if (i == 6) printf("six\n");
+            else if (i == 7) printf("seven\n");
+            else if (i == 8) printf("eight\n");
+            else if (i == 9) printf("nine\n");
+        } 
+        else {
+            if (i % 2 == 0)
+                printf("even\n");
+            else
+                printf("odd\n");
+        }
+    }
+
+    return 0;
+}
+8)https://www.hackerrank.com/challenges/sum-of-digits-of-a-five-digit-number/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+	
+    int n;
+    scanf("%d", &n);
+    int d1 = n % 10;
+    int d2 = (n / 10) % 10;
+    int d3 = (n / 100) % 10;
+    int d4 = (n / 1000) % 10;
+    int d5 = (n / 10000) % 10;
+
+    printf("%d", d1 + d2 + d3 + d4 + d5);
+    return 0;
+}
+9)https://www.hackerrank.com/challenges/bitwise-operators-in-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void calculate_the_maximum(int n, int k) {
+      int max_and = 0;
+    int max_or = 0;
+    int max_xor = 0;
+
+    for (int a = 1; a <= n; a++) {
+        for (int b = a + 1; b <= n; b++) {
+            int and_val = a & b;
+            int or_val  = a | b;
+            int xor_val = a ^ b;
+
+            if (and_val < k && and_val > max_and)
+                max_and = and_val;
+
+            if (or_val < k && or_val > max_or)
+                max_or = or_val;
+
+            if (xor_val < k && xor_val > max_xor)
+                max_xor = xor_val;
+        }
+    }
+
+    printf("%d\n%d\n%d\n", max_and, max_or, max_xor);
+}
+
+int main() {
+    int n, k;
+  
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+ 
+    return 0;
+}
+10)https://www.hackerrank.com/challenges/printing-pattern-2/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+
+    int n;
+    scanf("%d", &n);
+    int size = 2 * n - 1;
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            int top = i;
+            int left = j;
+            int right = size - 1 - j;
+            int bottom = size - 1 - i;
+
+            int min = top;
+            if (left < min) min = left;
+            if (right < min) min = right;
+            if (bottom < min) min = bottom;
+
+            printf("%d ", n - min);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+11)https://www.hackerrank.com/challenges/1d-arrays-in-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n;
+    scanf("%d", &n);
+
+    int *arr = (int *)malloc(n * sizeof(int));
+    int sum = 0;
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+
+    printf("%d", sum);
+
+    free(arr);
+    return 0;
+}
+12)https://www.hackerrank.com/challenges/reverse-array-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+
+    int arr[1000];  // maximum size, or any large enough number
+    int i;
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    for (i = n - 1; i >= 0; i--) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+13)https://www.hackerrank.com/challenges/printing-tokens-/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+char sentence[1000];  // large enough buffer
+    fgets(sentence, sizeof(sentence), stdin);
+
+    // Remove trailing newline if it exists
+    sentence[strcspn(sentence, "\n")] = '\0';
+
+    // Split the sentence into words using space as delimiter
+    char *word = strtok(sentence, " ");
+    while (word != NULL) {
+        printf("%s\n", word);
+        word = strtok(NULL, " ");
+    }
+
+    return 0;
+}
+14)https://www.hackerrank.com/challenges/frequency-of-digits-1/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+  char s[1000];
+    int freq[10] = {0};
+    scanf("%s", s);
+
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] >= '0' && s[i] <= '9') {
+            freq[s[i] - '0']++;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", freq[i]);
+    }
+    return 0;
+}
+15)https://www.hackerrank.com/challenges/dynamic-array-in-c/problem?isFullScreen=true
+----------
+
+int main()
+{
+    int total_number_of_shelves;
+    scanf("%d", &total_number_of_shelves);
+
+    int total_number_of_queries;
+    scanf("%d", &total_number_of_queries);
+
+    // Initialize arrays
+    int* total_number_of_books = (int*) calloc(total_number_of_shelves, sizeof(int));
+    int** total_number_of_pages = (int**) malloc(total_number_of_shelves * sizeof(int*));
+    for (int i = 0; i < total_number_of_shelves; i++) {
+        total_number_of_pages[i] = NULL;
+    }
+
+    while (total_number_of_queries--) {
+        int type_of_query;
+        scanf("%d", &type_of_query);
+
+        if (type_of_query == 1) {
+            int x, y;
+            scanf("%d %d", &x, &y);
+
+            int current_books = total_number_of_books[x];
+            total_number_of_pages[x] = realloc(total_number_of_pages[x], (current_books + 1) * sizeof(int));
+            total_number_of_pages[x][current_books] = y;
+            total_number_of_books[x]++;
