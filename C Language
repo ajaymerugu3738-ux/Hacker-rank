@@ -432,3 +432,136 @@ int main()
             total_number_of_pages[x] = realloc(total_number_of_pages[x], (current_books + 1) * sizeof(int));
             total_number_of_pages[x][current_books] = y;
             total_number_of_books[x]++;
+16)https://www.hackerrank.com/challenges/recursion-in-c/problem?isFullScreen=true
+----------
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//Complete the following function.
+
+int find_nth_term(int n, int a, int b, int c) {
+  if (n == 1)
+        return a;
+    if (n == 2)
+        return b;
+    if (n == 3)
+        return c;
+
+    return find_nth_term(n - 1, a, b, c)
+         + find_nth_term(n - 2, a, b, c)
+         + find_nth_term(n - 3, a, b, c);
+}
+
+int main() {
+    int n, a, b, c;
+  
+    scanf("%d %d %d %d", &n, &a, &b, &c);
+    int ans = find_nth_term(n, a, b, c);
+ 
+    printf("%d", ans); 
+    return 0;
+}
+17)https://www.hackerrank.com/challenges/students-marks-sum/problem?isFullScreen=true
+----------
+
+
+//Complete the following function.
+
+int marks_summation(int* marks, int number_of_students, char gender) {
+ int sum = 0;
+
+    for (int i = 0; i < number_of_students; i++) {
+        if (gender == 'b' && i % 2 == 0) {
+            sum += marks[i];
+        }
+        else if (gender == 'g' && i % 2 != 0) {
+            sum += marks[i];
+        }
+    }
+
+    return sum;
+}
+18)https://www.hackerrank.com/challenges/sorting-array-of-strings/problem?isFullScreen=true
+----------
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+/*----------------------------------------------------------*/
+/*  Comparison Functions                                    */
+/*----------------------------------------------------------*/
+
+// 1. Lexicographically non-decreasing
+int lexicographic_sort(const char* a, const char* b) {
+    return strcmp(a, b);
+}
+
+// 2. Lexicographically non-increasing
+int lexicographic_sort_reverse(const char* a, const char* b) {
+    return strcmp(b, a);
+}
+
+// Helper function to count distinct characters
+int distinct_count(const char* str) {
+    int freq[26] = {0};
+    int count = 0;
+
+    for(int i = 0; str[i]; i++) {
+        if(freq[str[i] - 'a'] == 0) {
+            freq[str[i] - 'a'] = 1;
+            count++;
+        }
+    }
+    return count;
+}
+
+// 3. Sort by number of distinct characters
+int sort_by_number_of_distinct_characters(const char* a, const char* b) {
+
+    int da = distinct_count(a);
+    int db = distinct_count(b);
+
+    if(da == db)
+        return strcmp(a, b);
+
+    return da - db;
+}
+
+// 4. Sort by length
+int sort_by_length(const char* a, const char* b) {
+
+    int la = strlen(a);
+    int lb = strlen(b);
+
+    if(la == lb)
+        return strcmp(a, b);
+
+    return la - lb;
+}
+
+/*----------------------------------------------------------*/
+/*  Sorting Function (Bubble Sort)                          */
+/*----------------------------------------------------------*/
+
+void string_sort(const char **arr, const int cnt,
+                 int (*cmp_func)(const char* a, const char* b)) {
+
+    for(int i = 0; i < cnt - 1; i++) {
+        for(int j = 0; j < cnt - i - 1; j++) {
+
+            if(cmp_func(arr[j], arr[j+1]) > 0) {
+
+                const char* temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+19)
